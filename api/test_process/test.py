@@ -29,3 +29,7 @@ async def add_answer(user_answer: str, user_id: int, q_id: int,
     if new_answer:
         return {"status": 1, "message": "ответ записан"}
     return {"status": 0, "message": "ответ не записан"}
+# дописать получение итогового результата
+@test_router.get("/get_result")
+async def get_result(user_id: int):
+    pass
