@@ -33,8 +33,9 @@ def get_exact_user_db(user_id):
 def user_answer_db(user_answer, user_id, q_id, level):
     with next(get_db()) as db:
         exact_question = db.query(Question).filter_by(id=q_id).first()
+        answers = [0, exact_question.v1, exact_question.v2, exact_question.v3, exact_question.v4]
         if exact_question:
-            if exact_question.correct_answer == user_answer:
+            if exact_question.correct_answer == answers.index(user_answer):
                 correctness = True
             else:
                 correctness = False

@@ -26,8 +26,8 @@ class Question(Base):
     v2 = Column(String)
     v3 = Column(String)
     v4 = Column(String)
-    correct_answer = Column(String, nullable=False)
-    timer = Column(DateTime)
+    correct_answer = Column(Integer, nullable=False)
+    timer = Column(Integer, default=30)
 
 
 # Создадим модель UserAnswer
@@ -38,7 +38,7 @@ class UserAnswer(Base):
     user_id = Column(Integer, ForeignKey("users.id"))
     question_id = Column(Integer, ForeignKey("questions.id"))
     user_answer = Column(String)
-    timer = Column(DateTime, default=datetime.now())
+    timer = Column(Integer)
     correctness = Column(Boolean, default=False)
     level = Column(String)
     user_fk = relationship(User, lazy="subquery")

@@ -4,7 +4,7 @@ from db.models import Question, Result
 
 # Функция для добавления вопроса
 def add_question_db(main_question, v1, v2, v3, v4,
-                    correct_answer, timer):
+                    correct_answer, timer=None):
     with next(get_db()) as db:
         new_question = Question(main_question=main_question,
                                 v1=v1, v2=v2, v3=v3, v4=v4,
